@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Modal } from 'bootstrap';
+import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import './App.css'
+import MainComponent from './components/MainComponent';
+import ModalExample from './components/modal';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configurestore'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const store = ConfigureStore();
+
+
+
+
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+
+  }
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+        <div className="App">
+
+
+          <MainComponent />
+
+
+
+        </div>
+      </BrowserRouter>
+
+
+      </Provider>
+      
+
+    )
+
+  }
 }
+
 
 export default App;
